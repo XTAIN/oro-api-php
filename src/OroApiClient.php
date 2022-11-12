@@ -2,6 +2,7 @@
 
 namespace Digitalprint\Oro\Api;
 
+use Digitalprint\Oro\Api\Endpoints\AccountEndpoint;
 use Digitalprint\Oro\Api\Endpoints\AddressEndpoint;
 use Digitalprint\Oro\Api\Endpoints\AddresstypeEndpoint;
 use Digitalprint\Oro\Api\Endpoints\AsyncoperationEndpoint;
@@ -54,6 +55,11 @@ class OroApiClient
      * @var AuthorizationEndpoint
      */
     public AuthorizationEndpoint $authorization;
+
+    /**
+     * @var AccountEndpoint
+     */
+    public AccountEndpoint $accounts;
 
     /**
      * @var AddressEndpoint
@@ -148,6 +154,7 @@ class OroApiClient
     {
         $this->authorization = new AuthorizationEndpoint($this);
 
+        $this->accounts = new AccountEndpoint($this);
         $this->addresses = new AddressEndpoint($this);
         $this->addresstypes = new AddresstypeEndpoint($this);
         $this->asyncoperations = new AsyncoperationEndpoint($this);
